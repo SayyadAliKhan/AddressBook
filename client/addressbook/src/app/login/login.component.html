@@ -1,0 +1,31 @@
+<div *ngIf="loader" class="lds-dual-ring"></div>
+<div class="login-field-wrap">
+  <div class="form-wrap mt-3">
+    <!-- <form (ngSubmit)="onSubmit(f)" #f> -->
+    <p *ngIf="authErrorStatus" class="text-danger mb-0 mt-2">{{authError}}</p>
+    <form #search="ngForm" (ngSubmit)="onSubmit(search.form.value)">
+      <div class="row">
+        <div class="col-12">
+          <label>Username </label>
+          <input type="text" class="email-input" placeholder="Username" ngModel name="username" required>
+          <p class="error-msg text-danger" style='font-size: 0.75rem; margin-top: 0;margin-bottom: 0;'
+            *ngIf='isUsernameEmpty'>
+            {{requiredFieldError}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12" style="position: relative;">
+          <label>Password</label>
+          <input type="password" class="email-input" placeholder="Password" ngModel name="password" required
+            type="{{ type }}" maxlength="25">
+          <span (click)="toggleShow()" *ngIf="showEye" class="password-eye eye-1"></span>
+          <span (click)="toggleShow()" *ngIf="!showEye" class="password-eye eye-2"></span>
+          <p class="error-msg text-danger" style='font-size: 0.75rem; margin-top: 0;margin-bottom: 0;'
+            *ngIf='isPasswordEmpty'>
+            {{requiredFieldError}}</p>
+        </div>
+      </div>
+      <input type="submit" value="Login" class="get-started">
+    </form>
+  </div>
+</div>

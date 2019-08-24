@@ -1,0 +1,190 @@
+.login-field-wrap .form-wrap {
+    padding: 0 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-field-wrap .form-wrap .row {
+    position: relative;
+}
+
+.login-field-wrap .form-wrap .row input {
+    width: 100%;
+    height: 36px;
+    border: 1px solid #e3e3e3;
+    border-radius: 3px;
+    font-size: 1.0625rem;
+    line-height: 36px;
+    color: #3f3f3f;
+}
+
+.login-field-wrap .form-wrap .row input::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #b9b9b9;
+    opacity: 1;
+    /* Firefox */
+}
+
+.login-field-wrap .form-wrap .row input:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #b9b9b9;
+}
+
+.login-field-wrap .form-wrap .row input::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #b9b9b9;
+}
+
+.login-field-wrap .form-wrap .get-started {
+    width: 100%;
+    border-radius: 72px;
+    text-align: center;
+    line-height: 54px;
+    height: 54px;
+    color: #515151;
+    background: -moz-linear-gradient(top, #fff08b 0%, #fedc53 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #fff08b 0%, #fedc53 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #fff08b 0%, #fedc53 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    font-size: 1.25rem;
+    color: #515151;
+    font-family: "AvenirNextMedium";
+    margin-top: 20px;
+}
+
+.login-field-wrap .form-wrap label {
+    margin-top: 15px;
+    font-size: 1rem;
+    margin-bottom: 2px;
+    color: #7f7f7f;
+}
+
+.login-field-wrap .form-wrap input[type="number"]::-webkit-outer-spin-button, .login-field-wrap .form-wrap input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.login-field-wrap .form-wrap input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.login-field-wrap .form-wrap input:active, .login-field-wrap .form-wrap input:focus {
+    outline: 0;
+}
+
+.login-field-wrap .form-wrap .site-input {
+    padding-left: 10px;
+    font-size: 1.0625rem;
+}
+
+.login-field-wrap .form-wrap .number-input {
+    padding-left: 60px;
+    font-size: 1.0625rem;
+}
+
+.login-field-wrap .form-wrap .email-input {
+    padding-left: 10px;
+}
+
+.login-field-wrap .form-wrap .country-code {
+    width: 42px;
+    padding-right: 10px;
+    height: 36px;
+    text-align: center;
+    line-height: 36px;
+    font-size: 1.0625rem;
+    position: absolute;
+    bottom: 12px;
+    left: 10px;
+    border-right: 2px solid #a5a5a5;
+}
+
+.login-field-wrap .form-wrap .form-footer {
+    font-size: 0.625rem;
+    margin: 10px auto 35px;
+}
+
+.login-field-wrap .form-wrap .password-eye {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+}
+
+.login-field-wrap .form-wrap .eye-1 {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAACiUlEQVQ4T82US2gTURSG/zPJJKG20Z3YStE0fRAltJlFkrowuhMtUqEuRRFbF/WBdaX7rtQWKvjEx1ILQqkupdnYTIQZMWJbkzSI1upOlJimzWSOzJgJSQztpoh3ee453z3/eVzCJh/aZB7+PdAj7Wu1objDUFKE7WtGefVpPVV1M/T2BH0k0DnS0Q/C9hrANwDPGLiZUuX5WngV0OfzOTSnexSECwDsAN4RY4YFNrMinVp1wkEC9gLQCDTeSGtXFEUpWOAy0O/3b1m1N7xgYD+AWR08klbjcj153p7esED6NQC9AGayVDiyrCg589FSAHUEwtMAH2bweKqt9TImJ4vG3a7uyDZRWDlu1pC0JxlF+WHGDAzYOtOfbzDhPAHTH1T5KAA2ge2B8BCBbzP4QUqNn7ayMmAOW14FY/cfG2U0WguUoQA6AqGHAE4CGEyq8j3yeg85Bff3jEF3abnORCLxywK294TOEuFWpWwGD6XU+F3L1ixJDU0szjPgyDnJYwEXDQd73tU1NxfNloGB4CCB7lTVkXAmqcj3LZvPF2nUXPkFgIScE20lyeXAR0lVPlUlWVhVAPaUbIsaFaQqyVLwMZhOoPRQuSmdgdAUA30gTDQ3uS5Fo1HNgHgkaaudRbMpGhWeWrBIJGJf/pkfAzAMoqmkEusvN8VwNmrRyOJzAAcIHCuybST9ZjZWb2y6usO9usDXAYQAvMw5qW8pFlupHBszTpIkMcuOUQZfNAeb6D2YZ0D80XQwuk1CBMx7ABQYGGtxu65aav4CWtl0SOEusD4MCMcANve44iwbqycU9YmFt6+TtQo2/G28/uBOEqnFTLDAX9KJ+FK9Mli2DYHrBde7+/+BvwFJ+/ND4JFQcAAAAABJRU5ErkJggg==) top left no-repeat;
+}
+
+.login-field-wrap .form-wrap .eye-2 {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAACwUlEQVQ4T7WUX0hTcRTHv+fu7q6EAq3ojxLkk0UQNNwwImjS5rBtKoyeEntICCLK3nrypV4KCeolEwofipDUOUsXgosI3WgUVEiQUtI/kaJRid7d+zvxc94xh0sK+z3+7jmf+/2ec36HsMaH1piH/wd0+ULNDkUbejLUM5unmpy+pm0qix0EVjPC/JwaGZz+k6tFhW5/UwWE+QaMSc2m1Uqoyxs6R4Q2ABUFgC9g9JJQro+P9E0UwnOWXd6Ah0iJWlAdpgPC6CQok8z8HkQM5p1E8DCwF4ABwlVjduuFVKozY4FzQL/f7/gmtMdSMBgvLaUr2XPVNdaAxRUCDgAYNTRxNBWNzsnYLLC9XXGPPb8D4BiA+wD8y+z7gvXESrkh7PdSIz1pmRIOh23Tab0DhDNMiCaHIyEAnK2hr+E4wN0AuhOxSEt1XYNHERwF8FYqlfZZmHEiJsNw7Leg2dzQLQAtBG4djw3cpD3hsLbhx8IEmEoWFmj3i3j/dxlY7Q0eUogeApgWtoxH4XUqhDkKpsuJR/2dVimcgUCJXVcmGNCUjVolLdVuCgxer2tV8XjPTyt4qdMdVk2zSo19ydjAg1xMbeMmUsUrAKJM0Suzlr0NrSC+AeB2IhY5YQXX+MJlAvozALuKNIrcvtBdWXsCTo7HIl1Wl8lVF4oQI8CEayXz6bZ4PG5I8MH6+lI9o7YQcNGqqZxTp7PVrm6e6QLQDFAkEetvzDVFJspaqLoyCOAwgDEm5XxyuG/MUuv2Bo/IRAs6J0xVhfmUgKmMJoLLx2Ypa/GvW2YugXEWgArgNYFGGXgHZjsIUoXLsj9Pv2xipuLrioOdP8A13kCVIOU0gCYA2wuG+xMYpfn287+vum3kOyfTLJdJbLN9TAz1fih8pvkLZVVgsc1iQRk4lYxF5KNYPP8MtLaUVPxXlospLHb/G0AiNfJXqkd7AAAAAElFTkSuQmCC) top left no-repeat;
+}
+
+.login-field-wrap .form-wrap .forgotPassLink {
+    font-size: 12px;
+    color: #4f4f4f;
+    float: right;
+    cursor: pointer;
+    margin-top: 4px;
+}
+
+.login-field-wrap .form-wrap .forgotPassLink:hover {
+    text-decoration: underline;
+}
+
+.tosLink a {
+    color: #3786e2;
+    text-decoration: underline;
+}
+
+.lds-dual-ring {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    right: 50%;
+    top: 50%;
+    z-index: 999;
+    margin: -25px -25px 0 0;
+}
+
+.lds-dual-ring:before {
+    content: " ";
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 46px;
+    height: 46px;
+    margin: 1px;
+    border-radius: 50%;
+    border: 5px solid #fbc900;
+    border-color: #fbc900 transparent #fbc900 transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+    position: relative;
+    z-index: 9999;
+}
+
+@keyframes lds-dual-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

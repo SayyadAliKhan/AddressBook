@@ -4,7 +4,7 @@ const apiService = require("./routes/apiRoute");
 const authService = require("./routes/authRoute");
 const bodyParser = require("body-parser");
 const cors = require('cors');
-const port = 3001;
+const port = process.env.PORT || 3001;
 const app = express();
 
 mongoose.connect("mongodb://localhost/addressbook", { useNewUrlParser: true } , (err) => {

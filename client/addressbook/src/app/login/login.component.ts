@@ -1,6 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { CookiesService } from 'src/services/cookies.service';
 import { ApiService } from 'src/services/api.service';
 
 @Component({
@@ -22,15 +21,14 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private _api: ApiService,
-    private _cookie: CookiesService
+    private _api: ApiService
   ) { }
 
   ngOnInit() {
   }
 
   onSubmit(form) {
-    this._cookie.removeAllCookies();
+    localStorage.clear(); // using clear in dev environment or just for assignment purpose,must not be done in prod
     this.isUsernameEmpty = false;
     this.isPasswordEmpty = false;
     this.isValid = true;
@@ -52,22 +50,14 @@ export class LoginComponent implements OnInit {
         this.loader = false;
         if (err) {
               this.authErrorStatus = true;
-              this.authError = err.msg;
+              this.authError = err.msg || err.error.msg;
           return false;
         }
           this.authErrorStatus = false;
-          this._cookie.setCookie('user_id', form.email);
-          this._cookie.setCookie('access_token', res.token);
-
-          // if (res.message === 'Authentication Failed') {
-          //   this.authErrorStatus = true;
-          //   this.authError = 'Invalid username/email or password';
-          //   //this.invalidCred.emit();
-          //   this.isPasswordEmpty = false;
-          //   this.isUsernameEmpty = false;
-          // }
-
-          this.router.navigate(['/profiles']);
+          localStorage.setItem('user_id', res.data._id);
+          localStorage.setItem('username', res.data.username);
+          localStorage.setItem('access_token', res.token);
+          this.router.navigate(['/dashboard']);
       });
     }
     return true;

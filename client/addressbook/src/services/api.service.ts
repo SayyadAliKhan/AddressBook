@@ -1,31 +1,28 @@
 import { Injectable } from '@angular/core';
 import { constants } from './constant.service';
-import { CookiesService } from '../services/cookies.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-
+  server = 'http://localhost:3001';
   constructor(
-    private http: HttpClient,
-    private _cookie: CookiesService
+    private http: HttpClient
   ) { }
 
   getAccessToken() {
-    return this._cookie.getCookie('access_token');
+    return localStorage.getItem('access_token');
   }
 
   getHeaderToken() {
     const headerToken = new HttpHeaders;
-    headerToken.append('X-Access-Token', this.getAccessToken());
+    headerToken.set('X-Access-Token', this.getAccessToken());
     return headerToken;
   }
 
   login(loginCreds, cb) {
-    this._cookie.removeAllCookies();
-    this.http.post(constants.APIS.LOGIN, loginCreds, {headers : this.getHeaderToken()})
+    this.http.post(this.server + constants.APIS.LOGIN, loginCreds)
       .subscribe(res => {
         cb(null, res);
       }, err => {
@@ -34,47 +31,52 @@ export class ApiService {
   }
 
   logout(cb) {
-    this._cookie.removeAllCookies();
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('user_id');
+    localStorage.removeItem('username');
     cb(null);
-    // this.http.post(constants.APIS.LOGOUT, { headers: this.getHeaderToken() })
-    //   .subscribe(res => {
-    //     this._cookie.removeAllCookies();
-    //     cb(null, res);
-    //   }, err => {
-    //     cb(err);
-    //   });
   }
 
-  // tokenVerification(Obj, cb) {
-  //   let filter = this._restangular.one(constants.APIS.TOKEN_VERIFICATION);
-  //   filter
-  //     .post("", Obj)
-  //     .toPromise()
-  //     .then(
-  //       res => {
-  //         if (cb) cb(null, res.plain());
-  //       },
-  //       err => {
-  //         if (cb) cb(err, null);
-  //       }
-  //     );
-  // }
+  // Get all addresses
+  getAllAddress(cb) {
+    this.http.post(this.server + constants.APIS.GETALLPROFILE,
+    { 'user_id': localStorage.getItem('user_id') }, { headers: this.getHeaderToken() })
+    .subscribe(res => {
+      cb(null, res);
+    }, err => {
+      cb(err);
+    });
+  }
 
-  // checkAuth(Obj, cb) {
-  //   let filter = this._restangular.one(constants.APIS.CHECK_AUTH)
-  //   filter
-  //     .post("", Obj, "", this.getHeaderToken())
-  //     .toPromise()
-  //     .then(
-  //       res => {
-  //         if (cb) cb(null, res.plain())
-  //       }
-  //     )
-  //     .catch(
-  //       err => {
-  //         if (cb) cb(err, null)
-  //       }
-  //     )
-  // }
+  // Save a particular address
+  saveAddress(address, cb) {
+    this.http.post(this.server + constants.APIS.SAVEPROFILE,
+      address, { headers: this.getHeaderToken() })
+      .subscribe(res => {
+        cb(null, res);
+      }, err => {
+        cb(err);
+      });
+  }
 
+
+  // Delete a particular address
+  deleteAddress(address, cb) {
+    this.http.delete(this.server + constants.APIS.DELETEPROFILE + address._id, { headers: this.getHeaderToken() })
+    .subscribe(res => {
+      cb(null, res);
+    }, err => {
+      cb(err);
+    });
+  }
+
+  // Edit a particular address
+  editAddress(address, cb) {
+    this.http.put(this.server + constants.APIS.EDITPROFILE + address._id, address, { headers: this.getHeaderToken() })
+      .subscribe(res => {
+        cb(null, res);
+      }, err => {
+        cb(err);
+      });
+  }
 }

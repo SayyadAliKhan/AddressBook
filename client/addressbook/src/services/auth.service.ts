@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
-import { CookiesService } from '../services/cookies.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,26 +7,25 @@ import { CookiesService } from '../services/cookies.service';
 export class AuthService {
 
   constructor(
-    public router: Router,
-    private _cookie: CookiesService
+    public router: Router
   ) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-
     if (state.url === '/' || state.url === '/login') {
-      if (this._cookie.getCookie('access_token')) {
-        this.router.navigate(['/profiles']);
+      if (localStorage.getItem('access_token')) {
+        this.router.navigate(['/dashboard']);
         return false;
-      }
+      } else {
         return true;
+      }
     } else {
-      if (this._cookie.getCookie('access_token')) {
+      if (localStorage.getItem('access_token')) {
         return true;
-      }
-      this.router.navigate(['/login']);
+      } else {
+        this.router.navigate(['/login']);
         return false;
+      }
     }
   }
-
 
 }

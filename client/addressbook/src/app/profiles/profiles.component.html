@@ -1,3 +1,12 @@
-<p>
-  profiles works!
-</p>
+<div class="ui container main">
+  <app-header></app-header>
+  <div class="extra content">
+    
+    <div class="ui one center">
+      <div class="ui basic blue button" (click)="logout()">Logout</div>
+    </div>
+    <div class="center">
+      <h3>Navigate to address book tab</h3><h2>{{user.toUpperCase()}}</h2>
+    </div>
+  </div>
+</div>

@@ -1,13 +1,13 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const apiService = require("./routes/apiService");
-const authService = require("./routes/authService");
+const apiService = require("./routes/apiRoute");
+const authService = require("./routes/authRoute");
 const bodyParser = require("body-parser");
 const cors = require('cors');
 const port = 3001;
 const app = express();
 
-mongoose.connect("mongodb://localhost/todoApp", { useNewUrlParser: true } , (err) => {
+mongoose.connect("mongodb://localhost/addressbook", { useNewUrlParser: true } , (err) => {
   if(err)
     console.log(err);
 
@@ -27,5 +27,5 @@ app.listen(port, (err) => {
   if(err)
     console.log("Server Down");
 
-    console.log("Port running");
+    console.log("running on port: ", port);
 });

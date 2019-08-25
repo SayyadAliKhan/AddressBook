@@ -4,6 +4,9 @@
 
 export const environment = {
   production: false
+  // DOMAIN: {
+  //   URL: 'http://localhost:3000',
+  // }
 };
 
 /*

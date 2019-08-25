@@ -1,17 +1,17 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const profile = new Schema({
-  "address_book_title" : String,
-  "contact_name" : String,
-  "contact_no" : Number,
-  "address_line_1" : String,
-  "address_line_1" : String,
-  "address_line_1" : String,
-  "pincode" : String,
-  "city" : String,
-  "state" : String,
-  "country" : String,
-  "user_id" : Schema.Types.ObjectId
+  "address_book_title" : {type : String, required : true},
+  "contact_name" : {type : String, required : true},
+  "contact_no" : {type : Number, required : true},
+  "address_line_1" : {type : String, required : true},
+  "address_line_2" : {type : String},
+  "address_line_3" : {type : String},
+  "pincode" : {type : String, required : true},
+  "city" : {type : String, required : true},
+  "state" : {type : String, required : true},
+  "country" : {type : String, required : true},
+  "user_id" : {type: Schema.Types.ObjectId, required : true}
 })
 
-module.export = mongoose.model("profile", profile);
+module.exports = mongoose.model("profile", profile);

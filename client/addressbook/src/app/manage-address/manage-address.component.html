@@ -1,3 +1,105 @@
-<p>
-  manage-address works!
-</p>
+<div class="ui container main">
+  <app-header></app-header>
+  <div class="ui segments">
+    <div *ngFor="let err of errorList">
+      <span style="font-size: small; color: red">{{err}}</span>
+    </div>
+    <div class="ui form">
+      <div class="fields">
+        <div class="three wide field">
+          <label>Address book Title</label>
+          <input name="address_book_title" type="text" placeholder="Address book Title" [(ngModel)]="address.address_book_title" autofocus>
+        </div>
+        <div class="three wide field">
+          <label>Name</label>
+          <input name="contact_name" type="text" placeholder="Name" [(ngModel)]="address.contact_name">
+        </div>
+        <div class="three wide field">
+          <label>Phone No.</label>
+          <input name="contact_no" type="number" step="1" min="1" class="quantity" 
+          size="10" placeholder="Phone Number" [(ngModel)]="address.contact_no">
+        </div>
+        <div class="three wide field">
+          <label>Address Line 1</label>
+          <input name="address_line_1" type="text" placeholder="Address Line 1" [(ngModel)]="address.address_line_1">
+        </div>
+        <div class="three wide field">
+          <label>Adress Line 2</label>
+          <input name="address_line_2" type="text" placeholder="Address Line 2" [(ngModel)]="address.address_line_2">
+        </div>
+        <div class="three wide field">
+          <label>Adress Line 3</label>
+          <input name="address_line_3" type="text" placeholder="Address Line 3" [(ngModel)]="address.address_line_3">
+        </div>
+      </div>
+
+      <div class="fields">
+        <div class="two wide field">
+          <label>Pin Code</label>
+          <input name="pincode" type="text" placeholder="Pin Code" [(ngModel)]="address.pincode">
+        </div>
+        <div class="two wide field">
+          <label>City</label>
+          <input name="city" type="text" placeholder="City" [(ngModel)]="address.city">
+        </div>
+        <div class="two wide field">
+          <label>State</label>
+          <input name="state" type="text" placeholder="State" [(ngModel)]="address.state">
+        </div>
+        <div class="two wide field">
+          <label>Country</label>
+          <input name="country" type="text" placeholder="Country" [(ngModel)]="address.country">
+        </div>
+        <div class="field">
+          <button class="ui primary button inline" type="button" (click)="saveAddress()">Save</button>
+        </div>
+        <div class="field">
+          <button class="ui primary button inline" type="button" (click)="clearAddress()">Clear</button>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="ui cards">
+      <div class="card" *ngFor="let add of addresses">
+        <div class="content">
+          <i class="right floated address card outline icon"></i>
+          <div class="header">
+            {{add.contact_name}}
+          </div>
+          <div class="description">
+            <span class="building">
+              <i class="building icon"></i>
+              {{add.address_book_title}}
+            </span>
+          </div>
+          <div class="description">
+            <span class="call">
+              <i class="call icon"></i>
+              {{add.contact_no}}
+            </span>
+          </div>
+          <div class="description">
+            <span class="marker">
+              <i class="marker icon"></i>
+              {{add.address_line_1}} {{add.address_line_2}} {{add.address_line_3}} {{add.pincode}}
+            </span>
+          </div>
+          <div class="description">
+            <span class="globe">
+              <i class="globe icon"></i>
+              {{add.city}}, {{add.state}}, {{add.country}}
+            </span>
+          </div>
+        </div>
+        <div class="extra content">
+          <div class="ui two buttons">
+            <div class="ui basic green button" (click)="editAddress(add)">Edit</div>
+            <div class="ui basic red button" (click)="deleteAdress(add)">Delete</div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+</div>

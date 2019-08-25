@@ -4,11 +4,12 @@ import { AuthService } from '../services/auth.service';
 import { LoginComponent } from './login/login.component';
 import { ProfilesComponent } from './profiles/profiles.component';
 import { ManageAddressComponent } from './manage-address/manage-address.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: '/login',
     pathMatch: 'full'
   },
   {
@@ -17,13 +18,8 @@ const routes: Routes = [
     canActivate: [AuthService]
   },
   {
-    path: 'profiles',
-    component: ProfilesComponent,
-    canActivate: [AuthService]
-  },
-  {
-    path: 'manageAddress',
-    component: ManageAddressComponent,
+    path: 'dashboard',
+    component: DashboardComponent,
     canActivate: [AuthService]
   },
   {

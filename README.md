@@ -19,5 +19,5 @@
 #Apart from Address Line 2 and Address Line 3 all fields are mandatory.
 
 #On the database end, I have used mongodb, there are 2 collections setup
-  # Users
-  # Profiles (Addresses)
+  #Users
+  #Profiles (Addresses)
